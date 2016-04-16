@@ -1,0 +1,61 @@
+# If this is your first time writing a language grammar, check out:
+#   - http://manual.macromates.com/en/language_grammars
+
+'scopeName': 'source.mux'
+'name': 'MUSHcode'
+'fileTypes': [
+  'mux'
+  'min.mux'
+]
+'patterns': [
+  {
+    'name': 'line.comment.mux'
+    'match': '^(\t)?@@.*$'
+  }
+  {
+    'name': 'line.comment.mux'
+    'match': '^(\t)?##.*$'
+  }
+  {
+    'name': 'block.comment.mux'
+    'match': '\/\*(.*?)\*\/'
+  }
+  {
+    'comment': 'Not all code instructions are within [] (even though it would be a good practice), but the game is always going to try to evaluate a sequence when it sees [].'
+    'begin': '\['
+    'end': '\]'
+    'contentName': 'code-string.mux'
+    'beginCaptures':
+      '0': 'open.code-bracket.mux'
+    'endCaptures':
+      '0': 'close.code-bracket.mux'
+  }
+  {
+    'name': ''
+    'comment': ''
+    'match': ''
+    'begin': ''
+    'end': ''
+    'contentName': ''
+    'captures':
+      '0': ''
+    'beginCaptures':
+      '0': ''
+    'endCaptures':
+      '0': ''
+    'include': ''
+  }
+]
+'repository': [
+  'hardcodeFunctions':
+    'name': 'hard.function.mux'
+    'match': '(@@|abs|accent|acos|add|after|alphamax|alphamin|and|andbool|andflags|ansi|aposs|art|asin|atan|atan2|attrcnt|band|baseconv|beep|before|bittype|bnand|bor|bxor|cand|candbool|cansee|capstr|case|cat|ceil|cemit|center|channels|chanobj|children|choose|chr|cmds|colordepth|columns|comalias|comp|comtitle|con|config|conn|connlast|connleft|connmax|connnum|connrecord|conntotal|controls|convsecs|convtime|cor|corbool|cos|cpad|crc32|create|ctime|ctu|cwho|dec|decrypt|default|delete|destroy|die|digest|digittime|dist2d|dist3d|distribute|doing|dumping|e|edefault|edit|elements|elock|emit|encrypt|entrances|eq|error|escape|etimefmt|eval|exit|exp|exptime|extract|fcount|fdepth|fdiv|filter|filterbool|findable|first|flags|floor|floordiv|fmod|fold|foreach|fullname|get|get_eval|grab|graball|grep|grepi|gt|gte|hasattr|hasattrp|hasflag|haspower|hasquota|hasrxlevel|hastxlevel|hastype|height|home|host|iabs|iadd|idiv|idle|if|ifelse|ilev|imul|inc|index|insert|inum|inzone|isdbref|isign|isint|isnum|israt|isub|isword|itemize|iter|itext|ladd|land|last|lastcreate|lattr|lattrcmds|lattrp|listrlevels|lcmds|lcon|lcstr|ldelete|lexits|lflags|link|list|lit|ljust|lmax|lmin|ln|lnum|loc|localize|locate|lock|log|lor|lpad|lparent|lports|lpos|lrand|lrooms|lt|lte|lwho|mail|mailfrom|mailsize|mailsubj|map|match|matchall|max|member|merge|mid|min|mix|mod|money|moniker|motd|mtime|mudname|mul|munge|name|nearby|neq|next|not|null|num|obj|objeval|objmem|oemit|or|orbool|ord|orflags|owner|pack|parent|pemit|pfind|pi|pickrand|playmem|pmatch|poll|ports|pos|poss|power|powers|r|rand|regmatch|regmatchi|regrab|regraball|regraballi|regrabi|remainder|remit|remove|repeat|replace|rest|restarts|restartsecs|restarttime|reverse|revwords|right|rjust|rloc|roman|room|round|rpad|rxlevel|s|scramble|search|secs|secure|set|setdiff|setinter|setq|setr|setunion|sha1|shl|shr|shuffle|sign|sin|singletime|siteinfo|sort|sortby|space|spellnum|splice|sql|sqrt|squish|startsecs|starttime|stats|step|strcat|strip|stripaccents|stripansi|strlen|strmatch|strmem|strtrunc|sub|subeval|subj|successes|switch|t|table|tan|tel|terminfo|textfile|time|timefmt|tr|trace|translate|trigger|trim|trunc|txlevel|type|u|ucstr|udefault|ulocal|unpack|v|vadd|valid|vcross|vdim|vdot|version|visible|vmag|vmul|vsub|vunit|where|width|wipe|wordpos|words|wrap|writetime|xget|xor|zfun|zone|zwho)'
+    'end': '\((.?)\)'
+    'endCaptures':
+      '1': 'within'
+  'softcodeFunctions'
+    'name': 'soft.function.mux' '(ostaff|andlist|dash|dice|findpc|mmm-dd-yyyy|isstaff|roll|scanobj|scan|header|footer|middle|isapproved|alert|posebreak-allow|atplace|placeinfo|whichplace|wfooter|wheader|wdivider|divider)'
+    'end': '\((.?)\)'
+    'endCaptures':
+      '1': 'within'
+]
